@@ -1,6 +1,6 @@
 from database import Base, engine, get_db
 from models import Category
-from crud import get_categories, get_category_id
+from crud import get_categories, get_category_id, get_categories_count
 
 
 def init_db():
@@ -25,10 +25,14 @@ def select_data_id(id):
     
 
 def select_data():
+    #  все категории
     s = get_categories()
     for i in s:
-        print(i.Category.name)
+        print(i.name)
     
+    # кол-во  категорий
+    total_count = get_categories_count()
+    print(total_count)
 
 
 init_db()
